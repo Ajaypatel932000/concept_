@@ -3,6 +3,13 @@
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#009688</color>
-    <color name="splashClr">#4CAF50</color>
+    <color name="splashClr">#0D80CF</color>
     <color name="fontClr">#FFEBF0E9</color>
+
+    <!-- Sign Up color code-->
+    <color name="colorPrimaryS">#2D383F</color>
+    <color name="colorPrimaryDarkS">#2D383F</color>
+    <color name="colorAccentS">#4EB9E9</color>
+    <color name="BackgroundS">#EEEDEF</color>
+
 </resources>
