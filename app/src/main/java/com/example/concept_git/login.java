@@ -27,117 +27,103 @@ import org.json.JSONObject;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.jar.JarException;
+
 
 public class login extends AppCompatActivity {
 
     TextView pass_link;
-    Button login_btn,registration;
-    TextInputEditText et_name,et_password;
+    Button login_btn, registration;
+    EditText et_name, et_password;
     RequestQueue requestQueue;
-    String pass,userName,URL="http://10.0.2.2:7990/WebService_Json/aayesha.asmx/validateUser";
+    String pass, userName, URL = "http://10.0.2.2:7990/WebService_Json/aayesha.asmx/validateUser";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        getSupportActionBar().setTitle("Login");
-
-        // Define ActionBar object
-        ActionBar actionBar;
-        actionBar = getSupportActionBar();
-
-        // Define ColorDrawable object and parse color
-        // using parseColor method
-        // with color hash code as its parameter
-        // Set BackgroundDrawable
-        actionBar.setBackgroundDrawable(MyActionBar.setColor());
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.hide();
 
         requestQueue = Volley.newRequestQueue(getApplicationContext());
 
-        pass_link=findViewById(R.id.text_view);
-        login_btn=findViewById(R.id.login_id);
-        et_name=findViewById(R.id.username_tv1);
-        et_password=findViewById(R.id.pass_tv2);
-        registration=findViewById(R.id.regi_id);
+        pass_link = findViewById(R.id.link_id);
+        login_btn = findViewById(R.id.login_id);
+        et_name = findViewById(R.id.et_Email);
+        et_password = findViewById(R.id.et_pass);
+        registration = findViewById(R.id.reg_id);
 
-         pass_link.setOnClickListener(new View.OnClickListener() {
-             @Override
-             public void onClick(View v) {
-                 Intent intent=new Intent(login.this,forgot_password.class);
-                 startActivity(intent);
-             }
-         });
+        pass_link.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(login.this, forgot_password.class);
+                startActivity(intent);
+            }
+        });
 
-         login_btn.setOnClickListener(new View.OnClickListener() {
-             @Override
-             public void onClick(View v) {
+        login_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
-                 login_fun();
+                login_fun();
 
 
-             }
-         });
+            }
+        });
 
 
     }
+
     // Moving to singUp form
-    public void SignUp(View view)
-    {
-        Intent intent=new Intent(login.this,sign_up.class);
+    public void SignUp(View view) {
+        Intent intent = new Intent(login.this, sign_up.class);
         startActivity(intent);
 
     }
 
     public void login_fun() {
-          userName = et_name.getText().toString().trim();
-          pass = et_password.getText().toString().trim();
+        userName = et_name.getText().toString().trim();
+        pass = et_password.getText().toString().trim();
 
-        Toast.makeText(this,"name ="+userName+" password= "+pass,Toast.LENGTH_LONG).show();
-       StringRequest stringRequest = new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {
+        Toast.makeText(this, "name =" + userName + " password= " + pass, Toast.LENGTH_LONG).show();
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 try {
                     JSONObject object = new JSONObject(response);
-                    boolean ans=object.getBoolean("Sucess");
-                      if(ans==true)
-                      {
-                          Toast.makeText(login.this,"Done ",Toast.LENGTH_LONG).show();
-                          Intent intent=new Intent(login.this,sign_up.class);
-                          startActivity(intent);
+                    boolean ans = object.getBoolean("Sucess");
+                    if (ans == true) {
+                        Toast.makeText(login.this, "Done ", Toast.LENGTH_LONG).show();
+                        Intent intent = new Intent(login.this, sign_up.class);
+                        startActivity(intent);
 
-                      }else
-                      {
-                          Toast.makeText(login.this,"False ",Toast.LENGTH_LONG).show();
-                      }
+                    } else {
+                        Toast.makeText(login.this, "False ", Toast.LENGTH_LONG).show();
+                    }
 
+                } catch (JSONException e) {
                 }
-                catch(JSONException e){}
             }
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                   Toast.makeText(login.this,"Error ="+error.getMessage(),Toast.LENGTH_LONG).show();
+                Toast.makeText(login.this, "Error =" + error.getMessage(), Toast.LENGTH_LONG).show();
             }
         }){
-        // send the data
-        @Override
-        protected Map<String, String> getParams () throws AuthFailureError {
-            Map<String, String> params = new HashMap<>();
-            params.put("id", userName);
-            params.put("pass",pass);
-            return params;
-        }
-    };
-        requestQueue.add(stringRequest);;
-
-                // send the data
-
+            // send the data
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String, String> params = new HashMap<>();
+                params.put("id", userName);
+                params.put("pass", pass);
+                return params;
+            }
+        };
+        requestQueue.add(stringRequest);
 
 
     }
 
-
-
 }
+
+
 

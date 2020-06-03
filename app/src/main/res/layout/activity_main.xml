@@ -8,7 +8,7 @@
     android:orientation="vertical"
     android:layout_gravity="center"
     android:gravity="center"
-    android:background="@color/colorPrimaryDarkS">
+    >
 
 <!--
     android:layout_width="300dp"
@@ -19,7 +19,7 @@
         android:id="@+id/imageView"
         android:layout_width="300dp"
         android:layout_height="250dp"
-        android:src="@drawable/bg3" />
+        android:src="@drawable/ic_school" />
 
     <TextView
         android:id="@+id/textView"
@@ -29,9 +29,10 @@
         android:fontFamily="sans-serif-black"
         android:text="CONCEPT"
         android:textAlignment="center"
-        android:textColor="@color/fontClr"
         android:textSize="50dp"
-        android:textStyle="italic" />
+        android:textStyle="italic"
+        android:textColor="#2CA7E0"
+        android:layout_gravity="center"/>
 
     <TextView
         android:id="@+id/textView2"
@@ -40,9 +41,11 @@
         android:layout_marginTop="10dp"
         android:fontFamily="sans-serif-black"
         android:text="CLASSES"
+        android:textColor="#2CA7E0"
+        android:textStyle="italic"
+        android:layout_gravity="center"
         android:textAlignment="center"
-        android:textColor="@color/fontClr"
-        android:textSize="35dp" />
+        android:textSize="40dp" />
 
 
 

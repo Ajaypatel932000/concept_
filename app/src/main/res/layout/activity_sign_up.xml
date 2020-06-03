@@ -6,8 +6,33 @@
     android:layout_height="match_parent"
     tools:context=".sign_up"
     android:orientation="vertical"
-    android:background="@color/BackgroundS">
+    android:padding="30dp">
 
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+
+        <ImageView
+            android:id="@+id/back_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:src="@drawable/ic_arrow_back" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="f"
+            android:text="Create Account !"
+            android:textColor="@color/BackgroundS"
+            android:textSize="40sp" />
+
+    </LinearLayout>
+
+<!--
 <LinearLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -200,4 +225,6 @@
         android:textColor="#ffffff"
         android:background="@drawable/button_rounded"/>
 </LinearLayout>
+-->
+
 </ScrollView>
