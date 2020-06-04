@@ -7,82 +7,7 @@
     tools:context=".login"
     android:orientation="vertical">
 
-<!--
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:padding="30dp"
-        android:src="@drawable/person_login"/>
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:focusable="true"
-        android:focusableInTouchMode="true"
-        android:layout_marginTop="20dp"
-        >
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/username_tv1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Email"
-            android:ems="10"
-            android:inputType="text"
-            android:textSize="20dp"
-            />
-
-     </com.google.android.material.textfield.TextInputLayout>
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:focusable="true"
-        android:focusableInTouchMode="true"
-        android:layout_marginTop="5dp" >
-
-    <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/pass_tv2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Password"
-        android:ems="10"
-        android:inputType="text"
-        android:textSize="20dp"
-        />
-
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <TextView
-        android:id="@+id/text_view"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_marginLeft="220dp"
-        android:layout_marginTop="10px"
-        android:textColor=" #0000EE"
-        android:text="Forgot Password?" />
-
-
-    <Button
-        android:id="@+id/login_id"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Login"
-        android:textSize="22sp"
-        android:layout_marginTop="40dp"
-        android:textColor="#ffffff"
-        android:background="@drawable/button_rounded"/>
-    <Button
-        android:id="@+id/regi_id"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Regester"
-        android:textSize="22sp"
-        android:layout_marginTop="10dp"
-        android:textColor="#ffffff"
-        android:background="@drawable/button_rounded"
-        android:onClick="SignUp"/>
--->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -154,11 +79,13 @@
             android:layout_gravity="center"
             android:text="Login"
             android:textColor="#fff"
+            android:textSize="20sp"
             android:layout_marginTop="20dp"
             android:background="@drawable/button"
             />
         <Button
             android:id="@+id/reg_id"
+            android:textSize="20sp"
             android:layout_width="300dp"
             android:layout_height="60dp"
             android:layout_gravity="center"

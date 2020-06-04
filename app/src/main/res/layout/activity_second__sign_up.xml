@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".sign_up"
+    android:orientation="vertical"
+    android:padding="30dp">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+
+        <ImageView
+            android:id="@+id/back_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:src="@drawable/ic_arrow_back"
+            android:transitionName="back_btn"/>
+         <LinearLayout
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:orientation="horizontal">
+
+
+             <TextView
+                 android:id="@+id/sign_up"
+                 android:layout_width="188dp"
+                 android:layout_height="98dp"
+                 android:fontFamily="sans-serif-condensed"
+                 android:text="Create Account !"
+                 android:textColor="@color/BackgroundS"
+                 android:textSize="40sp"
+                 android:textAllCaps="true"
+                 android:layout_marginTop="10dp"
+                 android:transitionName="design_text"/>
+             <ImageView
+                 android:id="@+id/logo"
+                 android:layout_width="wrap_content"
+                 android:layout_height="114dp"
+                 android:padding="5dp"
+                 android:src="@drawable/ic_account"
+                 android:transitionName="desing_logo"
+                 />
+
+         </LinearLayout>
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="10dp">
+            <EditText
+                android:id="@+id/et-name"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:hint="Full Name"
+                android:textColorHint="#2CA7E0"
+                android:layout_gravity="center"
+                android:drawableLeft="@drawable/ic_pencile"
+                android:drawablePadding="10dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/edit"
+                android:padding="20dp"
+                />
+            <EditText
+                android:id="@+id/et-phone"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/edit"
+                android:drawableLeft="@drawable/ic_phone"
+                android:drawablePadding="10dp"
+                android:inputType="phone"
+                android:padding="20dp"
+                android:hint="Father Number"
+                android:textColorHint="#2CA7E0" />
+            <EditText
+                android:id="@+id/m-et"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/edit"
+                android:drawableLeft="@drawable/ic_phone"
+                android:drawablePadding="10dp"
+                android:inputType="phone"
+                android:padding="20dp"
+                android:hint="Mother Number(Optional)"
+                android:textColorHint="#2CA7E0" />
+
+
+            <EditText
+                android:id="@+id/et-address"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:inputType="textMultiLine"
+                android:hint="Adress"
+                android:textColorHint="#2CA7E0"
+                android:layout_gravity="center"
+                android:drawableLeft="@drawable/ic_pencile"
+                android:drawablePadding="10dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/edit"
+                android:padding="20dp"
+                />
+
+  <LinearLayout
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="10dp"
+      android:layout_marginLeft="30dp">
+
+      <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginRight="20dp"
+          android:text="Gender :"
+          android:textColor="@color/BackgroundS"
+          android:textSize="20sp" />
+
+
+            <RadioGroup
+                android:id="@+id/radio"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:layout_gravity="center"
+                android:layout_marginLeft="5dp">
+
+                <RadioButton
+                    android:id="@+id/radioButton2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Male "
+                    android:textSize="20sp"
+                    android:textColor="@color/BackgroundS"/>
+
+                <RadioButton
+                    android:id="@+id/radioButton"
+                    android:layout_width="123dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="Female"
+                    android:textColor="@color/BackgroundS"
+                    android:textSize="20sp" />
+            </RadioGroup>
+
+  </LinearLayout>
+
+
+            <EditText
+                android:id="@+id/et-date"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:inputType="textMultiLine"
+                android:hint="BirthDate"
+                android:textColorHint="#2CA7E0"
+                android:layout_gravity="center"
+                android:drawableLeft="@drawable/ic_calender"
+                android:drawablePadding="10dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/edit"
+                android:padding="20dp"
+                />
+
+        </LinearLayout>
+        <Button
+            android:id="@+id/next_btn_id"
+            android:layout_width="300dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center"
+            android:text="CREATE ACCOUNT"
+            android:textSize="20sp"
+            android:onClick="nextSignUpScreen"
+            android:textColor="#fff"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/button"
+            android:elevation="5dp"
+            android:transitionName="next_btn"
+            />
+
+
+
+    </LinearLayout>
+
+
+</ScrollView>

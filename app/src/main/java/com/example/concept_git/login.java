@@ -35,7 +35,8 @@ public class login extends AppCompatActivity {
     Button login_btn, registration;
     EditText et_name, et_password;
     RequestQueue requestQueue;
-    String pass, userName, URL = "http://10.0.2.2:7990/WebService_Json/aayesha.asmx/validateUser";
+    String pass, userName, URL = "http://10.0.2.2:28972/WebService_Json/aayesha.asmx/validateUser";
+    //http://localhost:28972/WebService_Json/aayesha.asmx/validateUser
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -83,43 +84,60 @@ public class login extends AppCompatActivity {
     public void login_fun() {
         userName = et_name.getText().toString().trim();
         pass = et_password.getText().toString().trim();
+        if(validateUserName()) {
+            Toast.makeText(this, "name =" + userName + " password= " + pass, Toast.LENGTH_LONG).show();
+            StringRequest stringRequest = new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {
+                @Override
+                public void onResponse(String response) {
+                    try {
+                        JSONObject object = new JSONObject(response);
+                        boolean ans = object.getBoolean("Sucess");
+                        if (ans == true) {
+                            Toast.makeText(login.this, "Done ", Toast.LENGTH_LONG).show();
+                            Intent intent = new Intent(login.this, sign_up.class);
+                            startActivity(intent);
 
-        Toast.makeText(this, "name =" + userName + " password= " + pass, Toast.LENGTH_LONG).show();
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {
-            @Override
-            public void onResponse(String response) {
-                try {
-                    JSONObject object = new JSONObject(response);
-                    boolean ans = object.getBoolean("Sucess");
-                    if (ans == true) {
-                        Toast.makeText(login.this, "Done ", Toast.LENGTH_LONG).show();
-                        Intent intent = new Intent(login.this, sign_up.class);
-                        startActivity(intent);
+                        } else {
+                            Toast.makeText(login.this, "False ", Toast.LENGTH_LONG).show();
+                        }
 
-                    } else {
-                        Toast.makeText(login.this, "False ", Toast.LENGTH_LONG).show();
+                    } catch (JSONException e) {
                     }
-
-                } catch (JSONException e) {
                 }
-            }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                Toast.makeText(login.this, "Error =" + error.getMessage(), Toast.LENGTH_LONG).show();
-            }
-        }){
-            // send the data
-            @Override
-            protected Map<String, String> getParams() throws AuthFailureError {
-                Map<String, String> params = new HashMap<>();
-                params.put("id", userName);
-                params.put("pass", pass);
-                return params;
-            }
-        };
-        requestQueue.add(stringRequest);
+            }, new Response.ErrorListener() {
+                @Override
+                public void onErrorResponse(VolleyError error) {
+                    Toast.makeText(login.this, "Error =" + error.getMessage(), Toast.LENGTH_LONG).show();
+                }
+            }) {
+                // send the data
+                @Override
+                protected Map<String, String> getParams() throws AuthFailureError {
+                    Map<String, String> params = new HashMap<>();
+                    params.put("id", userName);
+                    params.put("pass", pass);
+                    return params;
+                }
+            };
+            requestQueue.add(stringRequest);
 
+        }
+    }
+
+    private boolean validateUserName()
+    {
+        if(userName.isEmpty())
+        {
+            et_name.setError(" UserName Requried ",getDrawable(R.drawable.ic_email));
+            return false;
+        }else if(pass.isEmpty())
+        {
+            et_password.setError("Password Can't  Empty");
+            return false;
+        }else
+        {
+            return true;
+        }
 
     }
 
