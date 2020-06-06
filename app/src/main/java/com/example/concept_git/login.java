@@ -56,7 +56,7 @@ public class login extends AppCompatActivity {
         pass_link.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(login.this, forgot_password.class);
+                Intent intent = new Intent(login.this, phone_number.class);
                 startActivity(intent);
             }
         });
@@ -94,7 +94,7 @@ public class login extends AppCompatActivity {
                         boolean ans = object.getBoolean("Sucess");
                         if (ans == true) {
                             Toast.makeText(login.this, "Done ", Toast.LENGTH_LONG).show();
-                            Intent intent = new Intent(login.this, sign_up.class);
+                            Intent intent = new Intent(login.this,dashboard.class);
                             startActivity(intent);
 
                         } else {

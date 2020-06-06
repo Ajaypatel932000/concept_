@@ -6,7 +6,8 @@
     android:layout_height="match_parent"
     tools:context=".sign_up"
     android:orientation="vertical"
-    android:padding="30dp">
+    android:padding="30dp"
+    android:background="@color/backgroundWhite">
 
 
     <LinearLayout
@@ -36,17 +37,18 @@
                  android:text="Create Account !"
                  android:textColor="@color/BackgroundS"
                  android:textSize="40sp"
+                 android:layout_marginLeft="25dp"
                  android:textAllCaps="true"
                  android:layout_marginTop="10dp"
                  android:transitionName="design_text"/>
+
              <ImageView
                  android:id="@+id/logo"
-                 android:layout_width="wrap_content"
-                 android:layout_height="114dp"
+                 android:layout_width="107dp"
+                 android:layout_height="match_parent"
                  android:padding="5dp"
                  android:src="@drawable/ic_account"
-                 android:transitionName="desing_logo"
-                 />
+                 android:transitionName="desing_logo" />
 
          </LinearLayout>
 
@@ -82,7 +84,7 @@
                 android:drawablePadding="10dp"
                 android:inputType="phone"
                 android:padding="20dp"
-                android:hint="Father Number"
+                android:hint="Parents Number"
                 android:textColorHint="#2CA7E0" />
             <EditText
                 android:id="@+id/m-et"
@@ -95,7 +97,7 @@
                 android:drawablePadding="10dp"
                 android:inputType="phone"
                 android:padding="20dp"
-                android:hint="Mother Number(Optional)"
+                android:hint="Alternate Number(Optional)"
                 android:textColorHint="#2CA7E0" />
 
 

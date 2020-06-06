@@ -1,4 +1,8 @@
 <resources>
     <string name="app_name">Concept_Git</string>
 
+    <!-- OTP VALUE -->
+    <string name="opt_code_text">Code</string>
+    <string name="otp_verficatio_text">Verification</string>
+    <string name="otp_description_text">Enter one time password sent on\n +9014036212</string>
 </resources>

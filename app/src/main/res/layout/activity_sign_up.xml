@@ -6,7 +6,8 @@
     android:layout_height="match_parent"
     tools:context=".sign_up"
     android:orientation="vertical"
-    android:padding="30dp">
+    android:padding="30dp"
+    android:background="@color/backgroundWhite">
 
 
     <LinearLayout
@@ -37,12 +38,14 @@
                 android:textColor="@color/BackgroundS"
                 android:textSize="40sp"
                 android:textAllCaps="true"
+                android:layout_marginLeft="25dp"
                 android:layout_marginTop="10dp"
                 android:transitionName="design_text"/>
+
             <ImageView
                 android:id="@+id/logo"
-                android:layout_width="wrap_content"
-                android:layout_height="114dp"
+                android:layout_width="112dp"
+                android:layout_height="match_parent"
                 android:padding="5dp"
                 android:src="@drawable/ic_account"
                 android:transitionName="desing_logo"

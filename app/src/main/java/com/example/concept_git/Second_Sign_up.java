@@ -9,6 +9,7 @@ import android.app.DownloadManager;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.util.Pair;
 import android.view.View;
 import android.widget.Button;
@@ -45,7 +46,9 @@ public class Second_Sign_up extends AppCompatActivity {
     Button next_btn;
     RadioButton radioButton;
     String URL="http://10.0.2.2:28972/WebService_Json/aayesha.asmx/AddNewUser";
-   RequestQueue requestQueue;
+    RequestQueue requestQueue;
+    String gender = "";
+    RadioButton male, female;
    String name,email,father_no,password;
     int d,m,y;
    public String full_name,mother_no,student_no,brithDate,address;
@@ -67,9 +70,12 @@ public class Second_Sign_up extends AppCompatActivity {
         et_father_no=findViewById(R.id.et_phone);
         et_mother_no=findViewById(R.id.m_et);
         et_address=findViewById(R.id.et_address);
+        male = findViewById(R.id.radioButton);
+        female = findViewById(R.id.radioButton2);
 
-       radioGroup=findViewById(R.id.radio);
-         requestQueue= Volley.newRequestQueue(getApplicationContext());
+
+        radioGroup=findViewById(R.id.radio);
+        requestQueue= Volley.newRequestQueue(getApplicationContext());
 
          Intent getDataIntent=getIntent();
 
@@ -87,6 +93,7 @@ public class Second_Sign_up extends AppCompatActivity {
                  startActivity(intent);
              }
          });
+
         // date picker code in edit text
         datePicker.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -101,16 +108,31 @@ public class Second_Sign_up extends AppCompatActivity {
                 datePickerDialog=new DatePickerDialog(Second_Sign_up.this, new DatePickerDialog.OnDateSetListener() {
                     @Override
                     public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-
-                        datePicker.setText(d+"/"+m+"/"+y);
+                        y = year;
+                        m = month+1;
+                        d = dayOfMonth;
+                        datePicker.setText(m+"/"+d+"/"+y);
 
                     }
                 },y,m,d);
+
                 datePickerDialog.show();
             }
         });
-
-
+        male.setOnClickListener((new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                gender = "male" ;
+                female.setError(null);
+            }
+        }));
+        female.setOnClickListener((new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                gender = "female";
+                female.setError(null);
+            }
+        }));
 
     }
     // create account move to login page code
@@ -165,9 +187,10 @@ public class Second_Sign_up extends AppCompatActivity {
                      params.put("full_name_key",et_full_name.getText().toString().trim());
                      params.put("father_no_key",et_father_no.getText().toString().trim());
                      params.put("mother_no_key",et_mother_no.getText().toString().trim());
-                     params.put("gender_key","Male");
+                     params.put("gender_key",gender);
                      params.put("birthDate_key",datePicker.getText().toString().trim());
-                     return params;
+                     params.put("address_key",et_address.getText().toString().trim());
+                       return params;
                  }
 
             };
@@ -177,10 +200,6 @@ public class Second_Sign_up extends AppCompatActivity {
     }
 
     public boolean CheckEmpty() {
-
-
-
-
 
         if (et_full_name.getText().toString().trim().isEmpty()) {
             et_full_name.setError(" Field Can't be empty");
@@ -194,27 +213,45 @@ public class Second_Sign_up extends AppCompatActivity {
             et_address.setError("Field Can't be empty");
             return false;
 
-        }else if(radioGroup.getCheckedRadioButtonId() == -1)
-        {
-            Toast.makeText(this,"Please select any one Gender",Toast.LENGTH_LONG).show();
-           // radioButton.setError("Select any Gender");
+        }else if(radioGroup.getCheckedRadioButtonId() == -1){
+            female.setError("Please Select gender");
             return false;
-        } else
+        }
+        /*else if (!(male.isChecked())) {
+
+            if (!female.isChecked()) {
+
+                female.setError("Please Select gender");
+                return false;
+
+            }
+            return false;
+
+        } */else if(datePicker.getText().toString().trim().isEmpty())
         {
-            Toast.makeText(this," true return ",Toast.LENGTH_LONG).show();
+            datePicker.setError("Field Can't be empty");
+            return false;
+        }
+        else
+        {
+
+            Toast.makeText(this," true return " ,Toast.LENGTH_LONG).show();
+            RadioButton r = findViewById(radioGroup.getCheckedRadioButtonId());
+            gender = r.getText().toString();
+            female.setError(null);
             return true;
         }
     }
 
     public boolean validation()
-    {/*
-        Date c = Calendar.getInstance().getTime();
-        System.out.println("Current time => " + c);
+    {
+//        Date c = Calendar.getInstance().getTime();
+//        System.out.println("Current time => " + c);
+//
+//        SimpleDateFormat df = new SimpleDateFormat("DD-M-yyyy");
+//        String formattedDate = df.format(c);
+//        Toast.makeText(Second_Sign_up.this," "+formattedDate,Toast.LENGTH_LONG).show();
 
-        SimpleDateFormat df = new SimpleDateFormat("DD-M-yyyy");
-        String formattedDate = df.format(c);
-        Toast.makeText(Second_Sign_up.this," "+formattedDate,Toast.LENGTH_LONG).show();
-       */
         if(!et_full_name.getText().toString().trim().matches("[a-zA-Z ]+"))
         {
             et_full_name.setError("Invalid Number");

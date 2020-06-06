@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <color name="backgroundWhite">#FFFFFF</color>
+
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#009688</color>
@@ -11,5 +13,10 @@
     <color name="colorPrimaryDarkS">#2D383F</color>
     <color name="colorAccentS">#4EB9E9</color>
     <color name="BackgroundS">#2CA7E0</color>
+
+    <!-- Dashboard Color code -->
+    <color name="colorPrimaryDashboard">#FFFFFF</color>
+    <color name="colorPrimaryDarkDashboard">#00574B</color>
+    <color name="colorAccentDashboard">#090808</color>
 
 </resources>
