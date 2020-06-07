@@ -11,7 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".change_password"></activity>
+        <activity android:name=".Navigation"></activity>
+        <activity android:name=".change_password" />
         <activity android:name=".phone_number" />
         <activity android:name=".dashboard" />
         <activity android:name=".thrid_Sign_up" />
