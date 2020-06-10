@@ -30,8 +30,8 @@
 
              <ImageView
                  android:id="@+id/menu_id"
-                 android:layout_width="60dp"
-                 android:layout_height="60dp"
+                 android:layout_width="55dp"
+                 android:layout_height="55dp"
                  android:layout_marginLeft="10dp"
                  android:background="@drawable/ic_menu_white" />
              <TextView
@@ -78,7 +78,7 @@
                          android:id="@+id/test_id"
                          android:layout_width="51dp"
                          android:layout_height="60dp"
-                         android:background="@drawable/ic_bulb" />
+                         android:background="@drawable/test" />
 
                      <TextView
                          android:layout_width="70dp"
