@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single" android:id="@+id/first_menu">
+    <item
+        android:id="@+id/profile"
+        android:title="Profile"
+        android:icon="@drawable/ic_person"/>
+
+    <item
+        android:id="@+id/chang_pass"
+        android:title="Change Password"
+        android:icon="@drawable/ic_key"/>
+        <item
+            android:id="@+id/Leave_status"
+            android:title="Leave Status"
+            android:icon="@drawable/ic_assignment"/>
+
+    <item
+        android:id="@+id/notification"
+        android:title="Notification"
+        android:icon="@drawable/ic_notifications"/>
+    </group>
+   <group android:id="@+id/second_menu" android:checkableBehavior="single">
+    <item
+        android:id="@+id/logout"
+        android:title="Logout"
+        android:icon="@drawable/logout"/>
+
+  </group>
+</menu>

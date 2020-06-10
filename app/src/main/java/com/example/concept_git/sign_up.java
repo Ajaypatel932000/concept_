@@ -37,7 +37,7 @@ public class sign_up extends AppCompatActivity {
     TextView titleText;
     Button next_btn;
     RequestQueue requestQueue;
-    String URL = "http://10.0.2.2:28972/WebService_Json/aayesha.asmx/checkUserName";
+    String URL = "http://10.0.2.2:8768/PROJECT2020/aayesha.asmx/checkUserName";
     EditText e_userName, e_pass, e_confrim_pass, e_student_no, e_email;
     boolean ans;
     @Override
@@ -209,10 +209,13 @@ public class sign_up extends AppCompatActivity {
         }
         if (!matcher1.matches()) {
             e_pass.setError("Password length minimum: 8. Non-alphanumeric characters required: 1.");
+            e_pass.getText().clear();
+
             return false;
 
         } else if (!e_pass.getText().toString().trim().equals(e_confrim_pass.getText().toString().trim())) {
             e_confrim_pass.setError("Invalid Password");
+            e_confrim_pass.getText().clear();
             return false;
 
         } else {

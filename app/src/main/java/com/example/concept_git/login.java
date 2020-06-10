@@ -31,11 +31,12 @@ import java.util.Map;
 
 public class login extends AppCompatActivity {
 
+   static  String USER_NAME_,ENROLLMENT_NO;
     TextView pass_link;
     Button login_btn, registration;
     EditText et_name, et_password;
     RequestQueue requestQueue;
-    String pass, userName, URL = "http://10.0.2.2:28972/WebService_Json/aayesha.asmx/validateUser";
+    String pass, userName, URL = "http://10.0.2.2:8768/PROJECT2020/aayesha.asmx/validateUser";
     //http://localhost:28972/WebService_Json/aayesha.asmx/validateUser
 
     @Override
@@ -67,7 +68,6 @@ public class login extends AppCompatActivity {
 
                 login_fun();
 
-
             }
         });
 
@@ -91,23 +91,26 @@ public class login extends AppCompatActivity {
                 public void onResponse(String response) {
                     try {
                         JSONObject object = new JSONObject(response);
-                        boolean ans = object.getBoolean("Sucess");
-                        if (ans == true) {
-                            Toast.makeText(login.this, "Done ", Toast.LENGTH_LONG).show();
+                        long ans = object.getLong("Sucess");
+                        if (ans>0) {
+                              ENROLLMENT_NO=String.valueOf(ans);
+                              USER_NAME_=et_name.getText().toString().trim();
+                            Toast.makeText(login.this, "Login Success "+ENROLLMENT_NO, Toast.LENGTH_LONG).show();
                             Intent intent = new Intent(login.this,dashboard.class);
                             startActivity(intent);
 
                         } else {
-                            Toast.makeText(login.this, "False ", Toast.LENGTH_LONG).show();
+                            Toast.makeText(login.this, "Invalid UserName Or Password Or Not Enroll in Classes ", Toast.LENGTH_LONG).show();
                         }
 
                     } catch (JSONException e) {
                     }
                 }
-            }, new Response.ErrorListener() {
+            }, new Response.ErrorListener(){
                 @Override
-                public void onErrorResponse(VolleyError error) {
-                    Toast.makeText(login.this, "Error =" + error.getMessage(), Toast.LENGTH_LONG).show();
+                public void onErrorResponse(VolleyError error)
+                {
+                    Toast.makeText(login.this, "Volley Response Error =" + error.getMessage(), Toast.LENGTH_LONG).show();
                 }
             }) {
                 // send the data

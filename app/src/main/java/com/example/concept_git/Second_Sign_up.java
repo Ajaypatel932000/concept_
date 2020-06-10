@@ -45,7 +45,7 @@ public class Second_Sign_up extends AppCompatActivity {
     RadioGroup radioGroup;
     Button next_btn;
     RadioButton radioButton;
-    String URL="http://10.0.2.2:28972/WebService_Json/aayesha.asmx/AddNewUser";
+    String URL="http://10.0.2.2:8768/PROJECT2020/aayesha.asmx/AddNewUser";
     RequestQueue requestQueue;
     String gender = "";
     RadioButton male, female;
@@ -217,17 +217,8 @@ public class Second_Sign_up extends AppCompatActivity {
             female.setError("Please Select gender");
             return false;
         }
-        /*else if (!(male.isChecked())) {
 
-            if (!female.isChecked()) {
-
-                female.setError("Please Select gender");
-                return false;
-
-            }
-            return false;
-
-        } */else if(datePicker.getText().toString().trim().isEmpty())
+       else if(datePicker.getText().toString().trim().isEmpty())
         {
             datePicker.setError("Field Can't be empty");
             return false;
@@ -245,12 +236,6 @@ public class Second_Sign_up extends AppCompatActivity {
 
     public boolean validation()
     {
-//        Date c = Calendar.getInstance().getTime();
-//        System.out.println("Current time => " + c);
-//
-//        SimpleDateFormat df = new SimpleDateFormat("DD-M-yyyy");
-//        String formattedDate = df.format(c);
-//        Toast.makeText(Second_Sign_up.this," "+formattedDate,Toast.LENGTH_LONG).show();
 
         if(!et_full_name.getText().toString().trim().matches("[a-zA-Z ]+"))
         {

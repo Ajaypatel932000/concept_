@@ -19,4 +19,11 @@
     <color name="colorPrimaryDarkDashboard">#00574B</color>
     <color name="colorAccentDashboard">#090808</color>
 
+
+    <!--    Navigaton Layout    -->
+    <color name="Primary">#673AB7</color>
+    <color name="PrimaryDark">#512DA8</color>
+    <color name="Darkgrey">#FF5252</color>
+    <color name="black">#212121</color>
+    <color name="colorGreen">#32CD32</color>
 </resources>
