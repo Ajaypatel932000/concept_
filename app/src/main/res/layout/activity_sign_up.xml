@@ -65,7 +65,7 @@
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
                 android:inputType="textEmailAddress"
-                android:hint="username"
+                android:hint="Username"
                 android:textColorHint="#2CA7E0"
                 android:layout_gravity="center"
                 android:drawableLeft="@drawable/ic_person"

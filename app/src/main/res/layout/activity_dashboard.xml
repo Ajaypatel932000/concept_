@@ -21,31 +21,33 @@
         >
 
 
-         <LinearLayout
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
+            android:layout_height="60dp"
             android:layout_marginTop="0dp"
-             android:background="@color/BackgroundS">
-
-             <ImageView
-                 android:id="@+id/menu_id"
-                 android:layout_width="55dp"
-                 android:layout_height="55dp"
-                 android:layout_marginLeft="10dp"
-                 android:background="@drawable/ic_menu_white" />
-             <TextView
-                 android:layout_width="wrap_content"
-                 android:layout_height="wrap_content"
-                 android:layout_marginTop="17dp"
-                 android:text="Dashboard"
-                 android:fontFamily="monospace"
-                 android:textColor="@color/BackgroundS"
-                 android:textSize="22sp"/>
+            android:background="@color/BackgroundS"
+            android:orientation="horizontal">
 
 
+            <ImageView
+                android:id="@+id/menu_id"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/ic_menu_white" />
 
-         </LinearLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="17dp"
+                android:fontFamily="monospace"
+                android:text="Dashboard"
+                android:textColor="@color/BackgroundS"
+                android:textSize="22sp" />
+
+
+        </LinearLayout>
          <GridLayout
              android:layout_width="match_parent"
              android:layout_height="wrap_content"

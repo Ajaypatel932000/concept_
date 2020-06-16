@@ -86,7 +86,7 @@ public class dashboard extends AppCompatActivity  implements View.OnClickListene
                        break;
 
                    case R.id.Leave_status:
-                       Intent intent1=new Intent(dashboard.this,Leave_status.class);
+                       Intent intent1=new Intent(dashboard.this,leave_recycle_view.class);
                        startActivity(intent1);
                        break;
 
@@ -135,7 +135,7 @@ public class dashboard extends AppCompatActivity  implements View.OnClickListene
                 break;
 
             case R.id.CardViewAttendance:
-                Intent intent5=new Intent(dashboard.this,attendance.class);
+                Intent intent5=new Intent(dashboard.this,attendance_card.class);
                 startActivity(intent5);
                 break;
 

@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardMaxElevation="3dp"
+    app:cardUseCompatPadding="true">
+
+    <!--this is recycle view inside cardview creating
+
+    RelativeLayout use to set relative content
+    -->
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="16dp">
+
+<ImageView
+    android:layout_width="50dp"
+    android:layout_height="50dp"
+    android:id="@+id/img_id"
+    android:src="@mipmap/ic_launcher"
+    />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/titleTv"
+        android:text="From"
+        android:textSize="15sp"
+        android:textColor="#000"
+        android:layout_toRightOf="@id/img_id"
+        android:layout_toEndOf="@id/img_id"
+        android:layout_marginLeft="10dp"
+        android:layout_marginStart="10dp"
+
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/dateTv"
+        android:textSize="15sp"
+        android:textColor="#000"
+        android:text=" Date"
+        android:layout_toRightOf="@id/titleTv"
+        android:layout_toEndOf="@id/titleTv"
+        android:layout_marginLeft="10dp"
+        android:layout_marginStart="20dp"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/title2Tv"
+        android:text="To"
+        android:textSize="15sp"
+        android:textColor="#000"
+        android:layout_below="@id/titleTv"
+        android:layout_toRightOf="@id/img_id"
+        android:layout_toEndOf="@id/img_id"
+        android:layout_marginLeft="10dp"
+        android:layout_marginStart="10dp"
+
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/reason2Tv"
+        android:text="Reason"
+        android:textSize="15sp"
+        android:textColor="#000"
+        android:layout_below="@id/title2Tv"
+        android:layout_toRightOf="@id/img_id"
+        android:layout_toEndOf="@id/img_id"
+        android:layout_marginLeft="10dp"
+        android:layout_marginStart="10dp"
+
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/date2Tv"
+        android:textSize="15sp"
+        android:textColor="#000"
+        android:text=" Date"
+        android:layout_below="@id/dateTv"
+        android:layout_toRightOf="@id/titleTv"
+        android:layout_toEndOf="@id/titleTv"
+        android:layout_marginLeft="10dp"
+        android:layout_marginStart="20dp"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/describeTV"
+        android:text="Description"
+        android:textSize="15sp"
+        android:textColor="#000"
+        android:layout_toRightOf="@id/reason2Tv"
+        android:layout_toEndOf="@id/reason2Tv"
+        android:layout_marginLeft="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="0dp"
+        android:layout_below="@id/date2Tv"
+        />
+
+
+</RelativeLayout>
+
+
+
+</androidx.cardview.widget.CardView>

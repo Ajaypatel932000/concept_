@@ -44,7 +44,7 @@ public class profile extends AppCompatActivity {
     private final int Image_Request=1;
     EditText et_name,et_email,et_number;
     Button update_btn;
-    String URL="http://10.0.2.2:8768/PROJECT2020/aayesha.asmx/getProfile";
+    String URL="http://10.0.2.2:8244/PROJECT2020/aayesha.asmx/getProfile";
     RequestQueue requestQueue;
     @Override
     protected void onCreate(Bundle savedInstanceState) {

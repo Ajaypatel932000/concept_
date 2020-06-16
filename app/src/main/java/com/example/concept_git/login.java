@@ -36,7 +36,7 @@ public class login extends AppCompatActivity {
     Button login_btn, registration;
     EditText et_name, et_password;
     RequestQueue requestQueue;
-    String pass, userName, URL = "http://10.0.2.2:8768/PROJECT2020/aayesha.asmx/validateUser";
+    String pass, userName, URL = "http://10.0.2.2:8244/PROJECT2020/aayesha.asmx/validateUser";
     //http://localhost:28972/WebService_Json/aayesha.asmx/validateUser
 
     @Override
