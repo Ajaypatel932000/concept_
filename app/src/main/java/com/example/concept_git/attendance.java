@@ -45,7 +45,7 @@ public class attendance extends AppCompatActivity {
     MyAdapter2 myAdapter2;
     boolean Status;
     RequestQueue requestQueue;
-    String Date, URL = "http://10.0.2.2:8244/PROJECT2020/aayesha.asmx/getAttendance";
+    String Date, URL = "http://10.0.2.2:5467/PROJECT2020/aayesha.asmx/getAttendance";
    int year,m,day;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -98,7 +98,6 @@ public class attendance extends AppCompatActivity {
 
 
 
-
                               Log.d("Tag", String.valueOf(jsonArray.length()));
                               JSONObject object = jsonArray.getJSONObject(i);
 
@@ -106,6 +105,7 @@ public class attendance extends AppCompatActivity {
                               Status = object.getBoolean("Status");
                              year= Integer.parseInt(object.getString("Year"));
                              day=Integer.parseInt(object.getString("A_date"));
+
 
                          try {
                              m=Integer.parseInt(month);
@@ -131,10 +131,12 @@ public class attendance extends AppCompatActivity {
                               }
                               model.add(m);
 
-                              Log.d("FROM", Date);
-                              Log.d("Status", String.valueOf(Status));
-
+                              Log.d("Date =", Date);
+                              Log.d("Status =", String.valueOf(Status));
+                              Log.d("DayOfWeek",dayOfWeek);
                           }
+
+
                       }else
                       {
                           Model2 m = new Model2();

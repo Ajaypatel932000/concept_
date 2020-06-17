@@ -31,7 +31,7 @@ public class phone_number extends AppCompatActivity {
     EditText et_userName;
     Button send_btn;
     ImageView back_btn;
-    String mobile_no, URL = "http://10.0.2.2:8768/PROJECT2020/aayesha.asmx/checkUserName";
+    String mobile_no, URL = "http://10.0.2.2:5467/PROJECT2020/aayesha.asmx/checkUserName";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

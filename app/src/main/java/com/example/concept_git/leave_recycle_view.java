@@ -31,7 +31,7 @@ import java.util.Map;
 public class leave_recycle_view extends AppCompatActivity {
 
     ImageView back_btn;
-    public String from,message,to,URL="http://10.0.2.2:8244/PROJECT2020/aayesha.asmx/leaveApprovement";
+    public String from,message,to,URL="http://10.0.2.2:5467/PROJECT2020/aayesha.asmx/leaveApprovement";
     boolean status;
     RecyclerView recyclerView;
     MyAdapter myAdapter;

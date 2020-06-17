@@ -29,7 +29,7 @@ import java.util.regex.Pattern;
 
 public class new_password extends AppCompatActivity implements View.OnClickListener{
 
-    String URL="http://10.0.2.2:8244/PROJECT2020/aayesha.asmx/changePassword";
+    String URL="http://10.0.2.2:5467/PROJECT2020/aayesha.asmx/changePassword";
     RequestQueue requestQueue;
     ImageView back_btn;
     Button change_pss_btn;

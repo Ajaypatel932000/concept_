@@ -33,7 +33,7 @@ import java.util.Map;
 public class leave extends AppCompatActivity implements View.OnClickListener {
 
     RequestQueue requestQueue;
-    String URL="http://10.0.2.2:8244/PROJECT2020/aayesha.asmx/ApplayToLeave";
+    String URL="http://10.0.2.2:5467/PROJECT2020/aayesha.asmx/ApplayToLeave";
     EditText et_from_date,et_to_date,et_reason;
     Button submit_btn;
     ImageView back_btn;

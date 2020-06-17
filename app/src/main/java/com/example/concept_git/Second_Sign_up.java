@@ -45,7 +45,7 @@ public class Second_Sign_up extends AppCompatActivity {
     RadioGroup radioGroup;
     Button next_btn;
     RadioButton radioButton;
-    String URL="http://10.0.2.2:8768/PROJECT2020/aayesha.asmx/AddNewUser";
+    String URL="http://10.0.2.2:5467/PROJECT2020/aayesha.asmx/AddNewUser";
     RequestQueue requestQueue;
     String gender = "";
     RadioButton male, female;
