@@ -126,7 +126,7 @@ public class dashboard extends AppCompatActivity  implements View.OnClickListene
                 startActivity(intent2);
                 break;
             case R.id.CardViewVideo:
-                Intent intent3=new Intent(dashboard.this,video.class);
+                Intent intent3=new Intent(dashboard.this,subject.class);
                 startActivity(intent3);
                 break;
             case R.id.CardViewLeave:
