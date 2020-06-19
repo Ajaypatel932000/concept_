@@ -11,26 +11,26 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
-public class MyAdapterSubject extends RecyclerView.Adapter<MyHolderSubject> {
-   Context c;
-   ArrayList<Subject_Model> models;
+public class MyAdapterChapter extends RecyclerView.Adapter<MyHolderChapter> {
 
-    public MyAdapterSubject(Context c, ArrayList<Subject_Model> models) {
+    Context c;
+    ArrayList<ModelChapter> models;
+
+    public MyAdapterChapter(Context c, ArrayList<ModelChapter> models) {
         this.c = c;
         this.models = models;
     }
 
     @NonNull
     @Override
-    public MyHolderSubject onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view= LayoutInflater.from(parent.getContext()).inflate(R.layout.subject_card,null);
+    public MyHolderChapter onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view= LayoutInflater.from(parent.getContext()).inflate(R.layout.chapter_card,null);
 
-        return new  MyHolderSubject(view);
+        return new MyHolderChapter(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull MyHolderSubject holder, int position) {
-
+    public void onBindViewHolder(@NonNull MyHolderChapter holder, int position) {
 
         holder.id_tv.setText(models.get(position).getId());
         holder.name_tv.setText(models.get(position).getName());
@@ -43,7 +43,7 @@ public class MyAdapterSubject extends RecyclerView.Adapter<MyHolderSubject> {
 
                 String id=models.get(position).getId();
                 String nm=models.get(position).getName();
-                Intent intent=new Intent(c,chapter.class);
+                Intent intent=new Intent(c,video.class);
 
                 intent.putExtra("id_key",id);
                 intent.putExtra("name_key",nm);

@@ -1,7 +1,9 @@
 package com.example.concept_git;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -26,15 +28,17 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class video extends AppCompatActivity {
-    RequestQueue requestQueue;
-    ListView listView;
-    public ArrayAdapter<String> arrayAdapter;
-    ArrayList<String> arrayList;
-    String id,Name,URL="http://10.0.2.2:5467/PROJECT2020/aayesha.asmx/getSubjects";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_video);
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.hide();
+
+        Intent data=getIntent();
+
+        Toast.makeText(video.this,"id ="+data.getStringExtra("id_key")+" name ="+data.getStringExtra("name_key"),Toast.LENGTH_LONG).show();
 
     }
 

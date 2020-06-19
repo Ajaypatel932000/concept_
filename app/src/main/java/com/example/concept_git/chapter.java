@@ -6,7 +6,6 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
-import android.drm.DrmStore;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -25,28 +24,27 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Locale;
 import java.util.Map;
 
-public class subject extends AppCompatActivity {
-   ImageView back;
-   RecyclerView recyclerView;
-   RequestQueue requestQueue;
-   MyAdapterSubject myAdapter2;
-    String ID,NAME, URL = "http://10.0.2.2:5467/PROJECT2020/aayesha.asmx/getSubjects";
+public class chapter extends AppCompatActivity {
+
+    ImageView back;
+    RecyclerView recyclerView;
+    RequestQueue requestQueue;
+    MyAdapterChapter myAdapter2;
+    String id,ID,NAME, URL = "http://10.0.2.2:5467/PROJECT2020/aayesha.asmx/getChapters";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_subject);
+        setContentView(R.layout.activity_chapter);
 
         ActionBar actionBar = getSupportActionBar();
         actionBar.hide();
 
-        back=findViewById(R.id.sub_back);
-        recyclerView = findViewById(R.id.recycleView_subject);
+        back=findViewById(R.id.chp_back);
+        recyclerView = findViewById(R.id.recycleView_chapter);
 
 
         requestQueue = Volley.newRequestQueue(getApplicationContext());
@@ -54,24 +52,26 @@ public class subject extends AppCompatActivity {
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(subject.this,dashboard.class);
+                Intent intent=new Intent(chapter.this,subject.class);
                 startActivity(intent);
 
             }
         });
 
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        myAdapter2=new MyAdapterSubject(this,getMyList());
+        myAdapter2=new MyAdapterChapter(this,getMyList());
         recyclerView.setAdapter(myAdapter2);
 
+
+
+        Intent data=getIntent();
+        Toast.makeText(chapter.this,"id ="+data.getStringExtra("id_key")+" name ="+data.getStringExtra("name_key"),Toast.LENGTH_LONG).show();
+        id=data.getStringExtra("id_key");
+
     }
-
-
-
-
-    private ArrayList<Subject_Model> getMyList()
+    private ArrayList<ModelChapter> getMyList()
     {
-        final   ArrayList<Subject_Model> model=new ArrayList<>();
+        final   ArrayList<ModelChapter> model=new ArrayList<>();
 
 
         StringRequest stringRequest=new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {
@@ -81,8 +81,8 @@ public class subject extends AppCompatActivity {
                 try{
 
                     JSONObject jsonObject =new JSONObject(response);
-                    JSONArray jsonArray= jsonObject.getJSONArray("Subjects");
-                    Toast.makeText(subject.this,"Json Length ="+jsonArray.length(),Toast.LENGTH_LONG).show();
+                    JSONArray jsonArray= jsonObject.getJSONArray("Chapters");
+                    Toast.makeText(chapter.this,"Json Length ="+jsonArray.length(),Toast.LENGTH_LONG).show();
                     if(jsonArray.length()!=0) {
                         for (int i = 0; i < jsonArray.length(); i++)
                         {
@@ -93,12 +93,12 @@ public class subject extends AppCompatActivity {
                             JSONObject object = jsonArray.getJSONObject(i);
 
                             ID = object.getString("ID");
-                             NAME= object.getString("Name");
+                            NAME= object.getString("Name");
 
-                             Subject_Model m=new Subject_Model();
-                             m.setId(ID);
-                             m.setName(NAME);
-                             model.add(m);
+                            ModelChapter m=new ModelChapter();
+                            m.setId(ID);
+                            m.setName(NAME);
+                            model.add(m);
 
                             Log.d("ID =", ID);
                             Log.d("NAME =", NAME);
@@ -108,7 +108,7 @@ public class subject extends AppCompatActivity {
 
                     }else
                     {
-                        Subject_Model m = new Subject_Model();
+                        ModelChapter m = new ModelChapter();
                         m.setName("No Record Found");
                         model.add(m);
 
@@ -125,14 +125,14 @@ public class subject extends AppCompatActivity {
             public void onErrorResponse(VolleyError error)
             {
 
-                Toast.makeText(subject.this,"Volley Response error"+error.getMessage(),Toast.LENGTH_LONG).show();
+                Toast.makeText(chapter.this,"Volley Response error"+error.getMessage(),Toast.LENGTH_LONG).show();
             }
 
         }){
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> params = new HashMap<>();
-                params.put("enroll_key", login.ENROLLMENT_NO);
+                params.put("subject_key",id);
 
 
                 return params;
@@ -143,9 +143,6 @@ public class subject extends AppCompatActivity {
         return model;
     }
 
-
-
     // first we create interface of itemClicklisner
-    //now gointo my MyHolderSubject class
-
+    //now gointo my MyHolderChapter class
 }

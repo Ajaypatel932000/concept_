@@ -12,7 +12,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".subject"></activity>
+        <activity android:name=".chapter"></activity>
+        <activity android:name=".subject" />
         <activity android:name=".subject_card" />
         <activity android:name=".attendance_card" />
         <activity android:name=".leave_recycle_view" />
