@@ -24,6 +24,7 @@ import org.json.JSONObject;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.logging.Level;
 
 public class phone_number extends AppCompatActivity {
 
@@ -31,7 +32,11 @@ public class phone_number extends AppCompatActivity {
     EditText et_userName;
     Button send_btn;
     ImageView back_btn;
-    String mobile_no, URL = "http://10.0.2.2:5467/PROJECT2020/aayesha.asmx/checkUserName";
+    static  String USERNAME;
+    boolean status;
+    int otp;
+    String mobile_no, URL = "http://10.0.2.2:5467/PROJECT2020/aayesha.asmx/checkUserName",URL1="http://10.0.2.2:5467/PROJECT2020/aayesha.asmx/getUsernameFromMobileNumber";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,16 +68,14 @@ public class phone_number extends AppCompatActivity {
 
                         try {
                             JSONObject object = new JSONObject(response);
-                          boolean  ans = object.getBoolean("UserNameSucces");
+                             boolean  ans = object.getBoolean("UserNameSucces");
                             if (ans) {
 
-                                sendUserName();
-                                Intent intent = new Intent(phone_number.this, forgot_password.class);
-                                startActivity(intent);
+                                  sendOTP();
 
+                            } else
+                                {
 
-
-                            } else {
                                 et_userName.setError("Invalid UserName");
                                 Toast.makeText(phone_number.this, "User Id Not Found", Toast.LENGTH_LONG).show();
                             }
@@ -103,21 +106,48 @@ public class phone_number extends AppCompatActivity {
     }
 
 
-    public void sendUserName()
+    public void sendOTP()
     {
-        RequestQueue requestQueue1=Volley.newRequestQueue(getApplicationContext());
 
-        StringRequest stringRequest1 = new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {
+
+        StringRequest stringRequest1 = new StringRequest(Request.Method.POST, URL1, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
 
-                //TODO NOTHING ONLY SEND USER NAME
+                       //TODO NOTHING ONLY SEND USER NAME
+         try {
+               JSONObject object = new JSONObject(response);
+
+                otp=object.getInt("OTP_key");
+               Toast.makeText(phone_number.this," OTP ="+otp,Toast.LENGTH_LONG).show();
+               if(otp!=0)
+               {
+                   String otp_string= String.valueOf(otp);
+                   Toast.makeText(phone_number.this," OTP True ="+otp,Toast.LENGTH_LONG).show();
+                   USERNAME=et_userName.getText().toString().trim();
+                   Intent intent = new Intent(phone_number.this, forgot_password.class);
+                   intent.putExtra("otp",otp_string);
+                   startActivity(intent);
+
+
+               }else
+               {
+                   Toast.makeText(phone_number.this,"OTP False ",Toast.LENGTH_LONG).show();
+                   et_userName.setError("Invalid Number");
+
+               }
+
+         }catch(JSONException e)
+         {
+                Toast.makeText(phone_number.this,"phoneNumber.java ="+e.getMessage(),Toast.LENGTH_LONG).show();
+         }
+
             }
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
 
-               // Toast.makeText(phone_number.this, "Phone_number.java =" + error.getMessage().toString(), Toast.LENGTH_LONG).show();
+                Toast.makeText(phone_number.this, "Phone_number.java =" + error.getMessage().toString(), Toast.LENGTH_LONG).show();
             }
         })
         {
@@ -126,11 +156,13 @@ public class phone_number extends AppCompatActivity {
                 params.put("username_key", et_userName.getText().toString().trim());
                 return params;
             }
+
         };
         requestQueue.add(stringRequest1);
 
 
     }
+
 
 
 }

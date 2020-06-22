@@ -190,7 +190,7 @@ public class sign_up extends AppCompatActivity {
         pattern = Pattern.compile(EMAIL_PATTERN);
         matcher = pattern.matcher(e_email.getText().toString().trim());
 
-        Pattern pattern1;
+       Pattern pattern1;
         Matcher matcher1;
         String PASSWORD_PATTERN = "^(?=.*[@#$%^&+=])(?=\\S+$).{8,}$";
         // we create pattern

@@ -43,8 +43,15 @@ public class MyAdapterChapter extends RecyclerView.Adapter<MyHolderChapter> {
 
                 String id=models.get(position).getId();
                 String nm=models.get(position).getName();
-                Intent intent=new Intent(c,video.class);
+                Intent intent;
+                if(dashboard.Status) {
 
+                     intent= new Intent(c, note.class);
+                }else
+                {
+                    intent= new Intent(c, video.class);
+
+                }
                 intent.putExtra("id_key",id);
                 intent.putExtra("name_key",nm);
                 c.startActivity(intent);

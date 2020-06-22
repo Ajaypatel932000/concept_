@@ -21,6 +21,7 @@ import com.google.android.material.navigation.NavigationView;
 public class dashboard extends AppCompatActivity  implements View.OnClickListener{
  ImageView navigation_btn;
     TextView titleText;
+  public static boolean Status;
     DrawerLayout mdrawerlayout;
     CardView TestCard,ResultCard,NoteCard,VideoCard,LeaveCard,AttendanceCard;
     NavigationView navigationView;
@@ -122,10 +123,12 @@ public class dashboard extends AppCompatActivity  implements View.OnClickListene
                 startActivity(intent1);
                 break;
             case R.id.CardViewNote:
-                Intent intent2=new Intent(dashboard.this,note.class);
+                Status=true;
+                Intent intent2=new Intent(dashboard.this,subject.class);
                 startActivity(intent2);
                 break;
             case R.id.CardViewVideo:
+                Status=false;
                 Intent intent3=new Intent(dashboard.this,subject.class);
                 startActivity(intent3);
                 break;
