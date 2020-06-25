@@ -20,16 +20,23 @@
 
             <com.mikhaellopez.circularimageview.CircularImageView
                 android:layout_width="250dp"
-                android:layout_height="250dp"
+                android:layout_height="200dp"
                 android:src="@drawable/ic_camera_24dp"
                 android:layout_gravity="center"
-                android:layout_marginTop="15dp"
+                android:layout_marginTop="10dp"
                 app:civ_shadow="true"
-                app:civ_border_width="5dp"
-                app:civ_shadow_radius="10dp"
+                app:civ_border_width="1dp"
+                app:civ_shadow_radius="3dp"
                 android:id="@+id/profile_img"
                 android:layout_marginBottom="15dp"
                 />
+
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="30dp"
+                android:layout_gravity="right"
+                android:id="@+id/select_img_id"
+                android:src="@drawable/ic_camera_24dp" />
         </LinearLayout>
         <EditText
             android:id="@+id/profile_et-userName"
