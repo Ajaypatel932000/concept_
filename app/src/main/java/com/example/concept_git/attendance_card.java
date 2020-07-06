@@ -12,7 +12,7 @@ import android.widget.Toast;
 
 public class attendance_card extends AppCompatActivity implements View.OnClickListener {
 
-    CardView m1,m2,m3,m4,m5,m6,m7,m8,m9,m10,m11,m12;
+    CardView m1,m2,m3,m4,m5,m6,m7,m8,m9,m10,m11,m12,m13;
      ImageView back;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +34,7 @@ public class attendance_card extends AppCompatActivity implements View.OnClickLi
          m10=findViewById(R.id.a_10);
          m11=findViewById(R.id.a_11);
          m12=findViewById(R.id.a_12);
+         m13=findViewById(R.id.a_13);
 
 
        m1.setOnClickListener(this);
@@ -48,6 +49,7 @@ public class attendance_card extends AppCompatActivity implements View.OnClickLi
        m10.setOnClickListener(this);
        m11.setOnClickListener(this);
        m12.setOnClickListener(this);
+       m13.setOnClickListener(this);
 
        back.setOnClickListener(new View.OnClickListener() {
            @Override
@@ -126,7 +128,10 @@ public class attendance_card extends AppCompatActivity implements View.OnClickLi
                 startActivity(intent12);
                 break;
 
-
+            case R.id.a_13:
+                  Intent intent13=new Intent(attendance_card.this,attendance_graph.class);
+                  startActivity(intent13);
+                  break;
 
                 default:
                     Toast.makeText(attendance_card.this,"Invalid Selection in Attendance_card.java",Toast.LENGTH_LONG).show();

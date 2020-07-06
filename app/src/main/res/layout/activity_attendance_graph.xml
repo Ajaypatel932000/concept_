@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".video"
+    tools:context=".attendance_graph"
     android:background="@color/backgroundWhite">
 
     <LinearLayout
@@ -17,7 +17,7 @@
 
 
         <ImageView
-            android:id="@+id/video_back"
+            android:id="@+id/pie_back"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_gravity="center"
@@ -30,7 +30,7 @@
             android:layout_marginTop="15dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Videos"
+            android:text="Pie Chart"
             android:layout_marginLeft="20dp"
             android:fontFamily="Times New Roman"
             android:textColor="@color/backgroundWhite"
@@ -45,15 +45,12 @@
         android:background="@color/backgroundWhite"
         android:orientation="vertical"
         >
-        <androidx.recyclerview.widget.RecyclerView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/recycleView1">
+<Spinner
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/spinner">
 
-
-
-
-        </androidx.recyclerview.widget.RecyclerView>
+</Spinner>
     </LinearLayout>
 
 </LinearLayout>

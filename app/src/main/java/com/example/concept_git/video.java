@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -28,7 +29,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class video extends AppCompatActivity {
-
+ImageView back_btn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,6 +37,16 @@ public class video extends AppCompatActivity {
         ActionBar actionBar = getSupportActionBar();
         actionBar.hide();
 
+        back_btn=findViewById(R.id.video_back);
+        back_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(video.this,subject.class);
+                Intent getSub_key=getIntent();
+                intent.putExtra("id_key",getSub_key.getStringExtra("sub_id"));
+                startActivity(intent);
+            }
+        });
         Intent data=getIntent();
 
         Toast.makeText(video.this,"id ="+data.getStringExtra("id_key")+" name ="+data.getStringExtra("name_key"),Toast.LENGTH_LONG).show();

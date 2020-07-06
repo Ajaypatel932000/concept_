@@ -106,7 +106,7 @@ public class subject extends AppCompatActivity {
                         }
 
 
-                    }else
+                  }else
                     {
                         Subject_Model m = new Subject_Model();
                         m.setName("No Record Found");

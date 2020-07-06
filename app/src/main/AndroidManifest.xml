@@ -11,13 +11,13 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
-        <activity android:name=".chapter"></activity>
+        android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true">
+        <activity android:name=".attendance_graph"></activity>
+        <activity android:name=".chapter" />
         <activity android:name=".subject" />
-        <activity android:name=".subject_card" />
         <activity android:name=".attendance_card" />
         <activity android:name=".leave_recycle_view" />
-        <activity android:name=".Leave_status" />
         <activity android:name=".attendance" />
         <activity android:name=".leave" />
         <activity android:name=".video" />

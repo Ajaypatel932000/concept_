@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -29,12 +30,13 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class chapter extends AppCompatActivity {
-
+    ProgressDialog progressDialog;
     ImageView back;
     RecyclerView recyclerView;
     RequestQueue requestQueue;
     MyAdapterChapter myAdapter2;
-    String id,ID,NAME, URL = "http://10.0.2.2:5467/PROJECT2020/aayesha.asmx/getChapters";
+    public static String id;
+    String ID,NAME, URL = "http://10.0.2.2:5467/PROJECT2020/aayesha.asmx/getChapters";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -73,11 +75,12 @@ public class chapter extends AppCompatActivity {
     {
         final   ArrayList<ModelChapter> model=new ArrayList<>();
 
-
         StringRequest stringRequest=new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {
             @Override
             public void onResponse(String response)
             {
+
+
                 try{
 
                     JSONObject jsonObject =new JSONObject(response);
@@ -102,6 +105,7 @@ public class chapter extends AppCompatActivity {
 
                             Log.d("ID =", ID);
                             Log.d("NAME =", NAME);
+
 
                         }
 

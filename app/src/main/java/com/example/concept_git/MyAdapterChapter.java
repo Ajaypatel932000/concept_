@@ -52,6 +52,7 @@ public class MyAdapterChapter extends RecyclerView.Adapter<MyHolderChapter> {
                     intent= new Intent(c, video.class);
 
                 }
+                intent.putExtra("sub_id",chapter.id);
                 intent.putExtra("id_key",id);
                 intent.putExtra("name_key",nm);
                 c.startActivity(intent);
