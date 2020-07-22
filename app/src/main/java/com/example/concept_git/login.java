@@ -21,6 +21,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.android.material.textfield.TextInputEditText;
+import com.google.firebase.messaging.FirebaseMessaging;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -31,7 +32,7 @@ import java.util.Map;
 
 public class login extends AppCompatActivity {
 
-   static  String USER_NAME_,ENROLLMENT_NO;
+   static  String USER_NAME_,ENROLLMENT_NO,Batch_Name;
     TextView pass_link;
     Button login_btn, registration;
     EditText et_name, et_password;
@@ -92,19 +93,31 @@ public class login extends AppCompatActivity {
                 public void onResponse(String response) {
                     try {
                         JSONObject object = new JSONObject(response);
-                        long ans = object.getLong("Sucess");
-                        if (ans>0) {
-                              ENROLLMENT_NO=String.valueOf(ans);
-                              USER_NAME_=et_name.getText().toString().trim();
+                        String user=object.getString("User");
+
+                        if (user.equalsIgnoreCase("true")) {
+                              ENROLLMENT_NO=object.getString("EnrollmentId");
+                              Batch_Name=object.getString("BatchName");
+                            FirebaseMessaging.getInstance().subscribeToTopic(Batch_Name);
+
+                            USER_NAME_=et_name.getText().toString().trim();
                             Toast.makeText(login.this, "Login Success "+ENROLLMENT_NO, Toast.LENGTH_LONG).show();
                             Intent intent = new Intent(login.this,dashboard.class);
                             startActivity(intent);
 
-                        } else {
-                            Toast.makeText(login.this, "Invalid UserName Or Password Or Not Enroll in Classes ", Toast.LENGTH_LONG).show();
+                        } else if(user.equalsIgnoreCase("false")) {
+
+                            Toast.makeText(login.this,"Please Visit Center for further Proceses",Toast.LENGTH_LONG).show();
+
+                        }else if(user.equalsIgnoreCase("Invalid username or password"))
+                        {
+                            Toast.makeText(login.this, "Invalid  Password  ", Toast.LENGTH_LONG).show();
+
                         }
 
                     } catch (JSONException e) {
+
+                        Toast.makeText(login.this,"Login Exception ="+e.getMessage(),Toast.LENGTH_LONG).show();
                     }
                 }
             }, new Response.ErrorListener(){
@@ -120,6 +133,7 @@ public class login extends AppCompatActivity {
                     Map<String, String> params = new HashMap<>();
                     params.put("id", userName);
                     params.put("pass", pass);
+                    params.put("fcmToken",MainActivity.token);
                     return params;
                 }
             };

@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "1068529045466",
+    "firebase_url": "https://conceptgit.firebaseio.com",
+    "project_id": "conceptgit",
+    "storage_bucket": "conceptgit.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1068529045466:android:0a62e0c51c0e475203fae3",
+        "android_client_info": {
+          "package_name": "com.example.concept_git"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1068529045466-e2r73ed7pci0em3mmo9onprhb12qrk9b.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.concept_git",
+            "certificate_hash": "cc49e9eac9f2a1dd5c1677d70fa01047b156e587"
+          }
+        },
+        {
+          "client_id": "1068529045466-u52b06kp6op9rr8p2mqrtrm2a15420bd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBlBTMxkNEJMpjSHQtIklVc-Zfv_FpWJQE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1068529045466-u52b06kp6op9rr8p2mqrtrm2a15420bd.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
