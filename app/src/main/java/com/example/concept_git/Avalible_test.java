@@ -5,7 +5,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.ProgressDialog;
-import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Toast;
 
@@ -16,8 +16,8 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.example.concept_git.test_subject.ListItems;
-import com.example.concept_git.test_subject.MyAdapter_Sub;
+import com.example.concept_git.show_test.ListItems_test;
+import com.example.concept_git.show_test.MyAdapter_test_list;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -28,27 +28,32 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class test extends AppCompatActivity {
+public class Avalible_test extends AppCompatActivity {
     private RecyclerView recyclerView;
     private RecyclerView.Adapter adapter;
-    private List<ListItems> itemsList;
+    private List<ListItems_test> itemsList;
     RequestQueue requestQueue;
-    String URL = "http://10.0.2.2:8244/PROJECT2020/aayesha.asmx/getSubjects";
-
+    String batch,subject;
+    String URL = "http://10.0.2.2:8244/PROJECT2020/aayesha.asmx/getTestList";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_test);
+        setContentView(R.layout.activity_avalible_test);
+
+
         requestQueue = Volley.newRequestQueue(getApplicationContext());
-        recyclerView = findViewById(R.id.recyclerview);
+        recyclerView = findViewById(R.id.recyclerview_test);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         itemsList = new ArrayList<>();
-        loadData();
+        Intent data=getIntent();
+        batch=data.getStringExtra("batch_id");
+        subject=data.getStringExtra("subject_id");
+        Toast.makeText(this,data.getStringExtra("batch_id")+ " "+data.getStringExtra("subject_id"),Toast.LENGTH_LONG).show();
 
+        loadTest();
     }
-
-    private void loadData() {
+    void loadTest() {
         final ProgressDialog progressDialog = new ProgressDialog(this);
         progressDialog.setMessage("Loading Data... ");
         progressDialog.show();
@@ -58,21 +63,21 @@ public class test extends AppCompatActivity {
                 try {
                     progressDialog.dismiss();
                     JSONObject jsonObject = new JSONObject(response);
-                    JSONArray jsonArray = jsonObject.getJSONArray("Subjects");
-                    Toast.makeText(test.this, "Json Length =" + jsonArray.length(), Toast.LENGTH_LONG).show();
+                    JSONArray jsonArray = jsonObject.getJSONArray("Test");
+                    Toast.makeText(Avalible_test.this, "Json Length =" + jsonArray.length(), Toast.LENGTH_LONG).show();
 
 
                     for (int i = 0; i < jsonArray.length(); i++) {
                         JSONObject object = jsonArray.getJSONObject(i);
-                        ListItems items = new ListItems(object.getString("ID"), object.getString("Name"));
+                        ListItems_test items = new ListItems_test(object.getString("ID"), object.getString("Name"));
                         itemsList.add(items);
                     }
-                    adapter = new MyAdapter_Sub(itemsList,getApplicationContext());
+                    adapter = new MyAdapter_test_list(itemsList, getApplicationContext());
                     recyclerView.setAdapter(adapter);
 
                 } catch (JSONException e) {
                     progressDialog.dismiss();
-                    Toast.makeText(test.this, "message =" + e.getMessage(), Toast.LENGTH_LONG).show();
+                    Toast.makeText(Avalible_test.this, "message =" + e.getMessage(), Toast.LENGTH_LONG).show();
 
                     e.printStackTrace();
                 }
@@ -83,19 +88,20 @@ public class test extends AppCompatActivity {
             public void onErrorResponse(VolleyError error) {
                 progressDialog.dismiss();
 
-                Toast.makeText(test.this, "Volley Response error " + error.getMessage(), Toast.LENGTH_LONG).show();
+                Toast.makeText(Avalible_test.this, "Volley  error " + error.getMessage(), Toast.LENGTH_LONG).show();
             }
 
         }) {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> params = new HashMap<>();
-                params.put("enroll_key", login.ENROLLMENT_NO);
-
+                params.put("batch_id",batch);
+                params.put("subject_id",subject);
                 return params;
             }
 
         };
         requestQueue.add(stringRequest);
+
     }
-}
+    }

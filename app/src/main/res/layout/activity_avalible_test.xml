@@ -4,13 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".test">
+    tools:context=".MainActivity">
 
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
 
-        android:id="@+id/recyclerview">
+        android:id="@+id/recyclerview_test">
+
 
     </androidx.recyclerview.widget.RecyclerView>
 </RelativeLayout>

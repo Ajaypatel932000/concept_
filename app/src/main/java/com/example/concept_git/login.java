@@ -37,7 +37,7 @@ public class login extends AppCompatActivity {
     Button login_btn, registration;
     EditText et_name, et_password;
     RequestQueue requestQueue;
-    String pass, userName, URL = "http://10.0.2.2:5467/PROJECT2020/aayesha.asmx/validateUser";
+    String pass, userName, URL = "http://10.0.2.2:8244/PROJECT2020/aayesha.asmx/validateUser";
    // http://localhost:5467/PROJECT2020/aayesha.asmx/validateUser
     //http://localhost:28972/WebService_Json/aayesha.asmx/validateUser
 
@@ -103,6 +103,7 @@ public class login extends AppCompatActivity {
                             USER_NAME_=et_name.getText().toString().trim();
                             Toast.makeText(login.this, "Login Success "+ENROLLMENT_NO, Toast.LENGTH_LONG).show();
                             Intent intent = new Intent(login.this,dashboard.class);
+
                             startActivity(intent);
 
                         } else if(user.equalsIgnoreCase("false")) {

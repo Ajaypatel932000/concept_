@@ -49,8 +49,8 @@ public class profile extends AppCompatActivity {
     private  final int IMG_REQUEST=1;
 
 
-    String URL="http://10.0.2.2:5467/PROJECT2020/aayesha.asmx/getProfile";
-    String img_path="http://10.0.2.2:5467/PROJECT2020/App_Themes/Theme1/assets/images/";
+    String URL="http://10.0.2.2:8244/PROJECT2020/aayesha.asmx/getProfile";
+    String img_path="http://10.0.2.2:8244/PROJECT2020/App_Themes/Theme1/assets/images/";
     RequestQueue requestQueue;
     @Override
     protected void onCreate(Bundle savedInstanceState) {

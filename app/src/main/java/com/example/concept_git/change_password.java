@@ -32,7 +32,7 @@ public class change_password extends AppCompatActivity implements View.OnClickLi
     EditText et_pass,et_confirm_pass;
     Button restButton;
     ImageView backButton;
-    String URL="http://10.0.2.2:5467/PROJECT2020/aayesha.asmx/changePasswordRandomly";
+    String URL="http://10.0.2.2:8244/PROJECT2020/aayesha.asmx/changePasswordRandomly";
     RequestQueue requestQueue;
 
     @Override

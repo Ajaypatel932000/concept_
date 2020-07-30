@@ -31,7 +31,7 @@ import java.util.Map;
 public class leave_recycle_view extends AppCompatActivity {
 
     ImageView back_btn;
-    public String from,message,to,URL="http://10.0.2.2:5467/PROJECT2020/aayesha.asmx/leaveApprovement";
+    public String from,message,to,URL="http://10.0.2.2:8244/PROJECT2020/aayesha.asmx/leaveApprovement";
     boolean status;
     RecyclerView recyclerView;
     MyAdapter myAdapter;
@@ -47,7 +47,7 @@ public class leave_recycle_view extends AppCompatActivity {
          // second we create three class
         // 1) Model it contain the variable and gatter and setter method
         // 2) Second create MyHolder class it will  bind the xml controls;
-        // 3)  Third MyAdapter Class which create layout and bind the data on that layout
+        // 3)  Third MyAdapter_Sub Class which create layout and bind the data on that layout
         back_btn=findViewById(R.id.cancle_btn);
         requestQueue= Volley.newRequestQueue(getApplicationContext());
         recyclerView=findViewById(R.id.recycleView);

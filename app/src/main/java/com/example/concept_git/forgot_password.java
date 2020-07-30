@@ -32,7 +32,7 @@ public class forgot_password extends AppCompatActivity implements View.OnClickLi
     ImageView back_btn;
    PinView pinView;
    RequestQueue requestQueue;
-   String URL="http://10.0.2.2:5467/PROJECT2020/aayesha.asmx/getUsernameFromMobileNumber";
+   String URL="http://10.0.2.2:8244/PROJECT2020/aayesha.asmx/getUsernameFromMobileNumber";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

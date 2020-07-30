@@ -43,7 +43,7 @@ public class sign_up extends AppCompatActivity {
     TextView titleText;
     Button next_btn;
     RequestQueue requestQueue;
-    String URL = "http://10.0.2.2:5467/PROJECT2020/aayesha.asmx/checkUserName";
+    String URL = "http://10.0.2.2:8244/PROJECT2020/aayesha.asmx/checkUserName";
     EditText e_userName, e_pass, e_confrim_pass, e_student_no, e_email;
     boolean ans;
     @Override

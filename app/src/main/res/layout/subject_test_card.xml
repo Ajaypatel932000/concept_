@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardMaxElevation="3dp"
+    app:cardUseCompatPadding="true">
+
+    <!--this is recycle view inside cardview creating
+
+    RelativeLayout use to set relative content
+    -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/relative_layout"
+        android:padding="20dp">
+
+        <!--  <ImageView
+              android:layout_width="30dp"
+              android:layout_height="30dp"
+              android:id="@+id/img"
+              android:src="@mipmap/ic_launcher"
+              />
+              -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv1"
+            android:text="ID"
+            android:textSize="20sp"
+            android:textColor="#000"
+            android:layout_marginLeft="30dp"
+            android:layout_marginStart="30dp"
+            />
+
+        <!--android:layout_toRightOf="@id/img"-->
+        <!--android:layout_toEndOf="@id/img"-->
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv2"
+            android:textSize="20sp"
+            android:textColor="#000"
+            android:text=" Test Name"
+            android:layout_toRightOf="@id/tv1"
+            android:layout_toEndOf="@id/tv1"
+            android:layout_marginLeft="10dp"
+            android:layout_marginStart="20dp"
+            />
+
+
+
+
+
+    </RelativeLayout>
+
+
+
+</androidx.cardview.widget.CardView>

@@ -36,7 +36,7 @@ public class subject extends AppCompatActivity {
    RecyclerView recyclerView;
    RequestQueue requestQueue;
    MyAdapterSubject myAdapter2;
-    String ID,NAME, URL = "http://10.0.2.2:5467/PROJECT2020/aayesha.asmx/getSubjects";
+    String ID,NAME, URL = "http://10.0.2.2:8244/PROJECT2020/aayesha.asmx/getSubjects";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

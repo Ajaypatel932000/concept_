@@ -45,7 +45,7 @@ public class attendance extends AppCompatActivity {
     MyAdapter2 myAdapter2;
     boolean Status;
     RequestQueue requestQueue;
-    String Date, URL = "http://10.0.2.2:5467/PROJECT2020/aayesha.asmx/getAttendance";
+    String Date, URL = "http://10.0.2.2:8244/PROJECT2020/aayesha.asmx/getAttendance";
    int year,m,day;
     @Override
     protected void onCreate(Bundle savedInstanceState) {

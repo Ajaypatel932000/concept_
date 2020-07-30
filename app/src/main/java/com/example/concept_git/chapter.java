@@ -36,7 +36,7 @@ public class chapter extends AppCompatActivity {
     RequestQueue requestQueue;
     MyAdapterChapter myAdapter2;
     public static String id;
-    String ID,NAME, URL = "http://10.0.2.2:5467/PROJECT2020/aayesha.asmx/getChapters";
+    String ID,NAME, URL = "http://10.0.2.2:8244/PROJECT2020/aayesha.asmx/getChapters";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

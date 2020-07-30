@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
         ActionBar actionBar = getSupportActionBar();
         actionBar.hide();
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
-      setContentView(R.layout.activity_main);
+         setContentView(R.layout.activity_main);
         FirebaseInstanceId.getInstance().getInstanceId().addOnCompleteListener(new OnCompleteListener<InstanceIdResult>() {
             @Override
             public void onComplete(@NonNull Task<InstanceIdResult> task) {
@@ -55,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
 
                 } else
                 {
-
+                 Toast.makeText(MainActivity.this,"Token Error ",Toast.LENGTH_LONG).show();
                 }
             }
         });

@@ -35,7 +35,7 @@ public class phone_number extends AppCompatActivity {
     static  String USERNAME;
     boolean status;
     int otp;
-    String mobile_no, URL = "http://10.0.2.2:5467/PROJECT2020/aayesha.asmx/checkUserName",URL1="http://10.0.2.2:5467/PROJECT2020/aayesha.asmx/getUsernameFromMobileNumber";
+    String mobile_no, URL = "http://10.0.2.2:8244/PROJECT2020/aayesha.asmx/checkUserName",URL1="http://10.0.2.2:8244/PROJECT2020/aayesha.asmx/getUsernameFromMobileNumber";
 
 
     @Override

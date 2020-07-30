@@ -34,8 +34,8 @@ import java.util.Map;
 public class dashboard extends AppCompatActivity  implements View.OnClickListener{
     ImageView navigation_btn,profile;
     TextView titleText,name;
-    String URL="http://10.0.2.2:5467/PROJECT2020/aayesha.asmx/getProfile";
-    String img_path="http://10.0.2.2:5467/PROJECT2020/App_Themes/Theme1/assets/images/";
+    String URL="http://10.0.2.2:8244/PROJECT2020/aayesha.asmx/getProfile";
+    String img_path="http://10.0.2.2:8244/PROJECT2020/App_Themes/Theme1/assets/images/";
 
    public RequestQueue requestQueue;
 
