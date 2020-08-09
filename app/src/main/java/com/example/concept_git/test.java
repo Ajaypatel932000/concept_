@@ -1,12 +1,16 @@
 package com.example.concept_git;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
@@ -33,20 +37,34 @@ public class test extends AppCompatActivity {
     private RecyclerView.Adapter adapter;
     private List<ListItems> itemsList;
     RequestQueue requestQueue;
-    String URL = "http://10.0.2.2:8244/PROJECT2020/aayesha.asmx/getSubjects";
+    ImageView imageView;
+    String URL;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test);
+
+        ActionBar actionBar=getSupportActionBar();
+        actionBar.hide();
+        URL= "http://10.0.2.2:8244/PROJECT2020/aayesha.asmx/getSubjects";
         requestQueue = Volley.newRequestQueue(getApplicationContext());
         recyclerView = findViewById(R.id.recyclerview);
+        imageView=findViewById(R.id.sub_back);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         itemsList = new ArrayList<>();
         loadData();
+       imageView.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View v) {
 
+               Intent intent=new Intent(test.this,dashboard.class);
+               startActivity(intent);
+           }
+       });
     }
+
 
     private void loadData() {
         final ProgressDialog progressDialog = new ProgressDialog(this);
@@ -83,7 +101,7 @@ public class test extends AppCompatActivity {
             public void onErrorResponse(VolleyError error) {
                 progressDialog.dismiss();
 
-                Toast.makeText(test.this, "Volley Response error " + error.getMessage(), Toast.LENGTH_LONG).show();
+                Toast.makeText(test.this, "Volley Response error test.java " + error.getMessage(), Toast.LENGTH_LONG).show();
             }
 
         }) {

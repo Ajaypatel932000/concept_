@@ -1,5 +1,6 @@
 package com.example.concept_git;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -7,6 +8,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
@@ -33,23 +36,37 @@ public class Avalible_test extends AppCompatActivity {
     private RecyclerView.Adapter adapter;
     private List<ListItems_test> itemsList;
     RequestQueue requestQueue;
-    String batch,subject;
+   public  static String batch,subject;
+    ImageView back;
     String URL = "http://10.0.2.2:8244/PROJECT2020/aayesha.asmx/getTestList";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_avalible_test);
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.hide();
 
 
+        back=findViewById(R.id.test_back);
         requestQueue = Volley.newRequestQueue(getApplicationContext());
         recyclerView = findViewById(R.id.recyclerview_test);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         itemsList = new ArrayList<>();
         Intent data=getIntent();
-        batch=data.getStringExtra("batch_id");
+        //batch=data.getStringExtra("batch_id");
         subject=data.getStringExtra("subject_id");
-        Toast.makeText(this,data.getStringExtra("batch_id")+ " "+data.getStringExtra("subject_id"),Toast.LENGTH_LONG).show();
+        Toast.makeText(this, "subject_id "+data.getStringExtra("subject_id"),Toast.LENGTH_LONG).show();
+
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(Avalible_test.this,test.class);
+                startActivity(intent);
+
+            }
+        });
+
 
         loadTest();
     }
@@ -95,7 +112,7 @@ public class Avalible_test extends AppCompatActivity {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> params = new HashMap<>();
-                params.put("batch_id",batch);
+                params.put("enroll_id",login.ENROLLMENT_NO);
                 params.put("subject_id",subject);
                 return params;
             }

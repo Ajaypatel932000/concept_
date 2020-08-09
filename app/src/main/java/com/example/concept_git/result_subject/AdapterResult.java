@@ -1,4 +1,4 @@
-package com.example.concept_git.test_subject;
+package com.example.concept_git.result_subject;
 
 import android.content.Context;
 import android.content.Intent;
@@ -14,14 +14,18 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.concept_git.Avalible_test;
 import com.example.concept_git.R;
+import com.example.concept_git.result_graph;
+import com.example.concept_git.test_subject.ListItems;
+import com.example.concept_git.test_subject.MyAdapter_Sub;
 
 import java.util.List;
 
-public class MyAdapter_Sub extends RecyclerView.Adapter<MyAdapter_Sub.ViewHolder> {
-    List<ListItems> listItems;
+public class AdapterResult extends RecyclerView.Adapter<AdapterResult.ViewHolder> {
+    List<GetSet> list;
     private Context context;
-    public MyAdapter_Sub(List<ListItems> listItems, Context context) {
-        this.listItems = listItems;
+
+    public AdapterResult(List<GetSet> list, Context context) {
+        this.list = list;
         this.context = context;
     }
 
@@ -31,23 +35,23 @@ public class MyAdapter_Sub extends RecyclerView.Adapter<MyAdapter_Sub.ViewHolder
         View  v= LayoutInflater.from(parent.getContext()).inflate(R.layout.subject_test_card,parent,false);
 
         return new ViewHolder(v);
-
     }
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        final ListItems items=listItems.get(position);
+
+        final GetSet items=list.get(position);
         holder.textViewId.setText(items.getId());
         holder.textViewName.setText(items.getName());
         holder.relativeLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                Intent intent=new Intent(context, Avalible_test.class);
-                Toast.makeText(context,"hello",Toast.LENGTH_LONG).show();
+                Intent intent=new Intent(context,result_graph.class);
+               // Toast.makeText(context,"hello",Toast.LENGTH_LONG).show();
                 // you can fetch the batchid pass here
-                intent.putExtra("batch_id","7");
-                intent.putExtra("subject_id",items.getId());
+                intent.putExtra("test_id",items.getId());
+                //intent.putExtra("subject_id",items.getId());
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 context.startActivity(intent);
 
@@ -57,23 +61,21 @@ public class MyAdapter_Sub extends RecyclerView.Adapter<MyAdapter_Sub.ViewHolder
 
     @Override
     public int getItemCount() {
-        return listItems.size();
+        return list.size();
     }
 
 
-    public class ViewHolder extends RecyclerView.ViewHolder
-    {
-
-        public TextView textViewId,textViewName;
+    public class ViewHolder extends RecyclerView.ViewHolder {
+        public TextView textViewId, textViewName;
         RelativeLayout relativeLayout;
+
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            textViewId=itemView.findViewById(R.id.tv1);
+            textViewId = itemView.findViewById(R.id.tv1);
             textViewId.setVisibility(View.GONE);
-            textViewName=itemView.findViewById(R.id.tv2);
-            relativeLayout=itemView.findViewById(R.id.relative_layout);
-
+            textViewName = itemView.findViewById(R.id.tv2);
+            relativeLayout = itemView.findViewById(R.id.relative_layout);
 
         }
-}
+    }
 }

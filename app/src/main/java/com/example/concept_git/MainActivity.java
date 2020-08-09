@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
@@ -25,7 +26,7 @@ import com.google.firebase.iid.FirebaseInstanceId;
 import com.google.firebase.iid.InstanceIdResult;
 
 public class MainActivity extends AppCompatActivity {
-    private  static  int SPLASH_SCREEN =5000;
+    private  static  int SPLASH_SCREEN =4000;
 
     ImageView imageView;
     TextView textView1, textView2;
@@ -39,36 +40,13 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         ActionBar actionBar = getSupportActionBar();
         actionBar.hide();
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
          setContentView(R.layout.activity_main);
-        FirebaseInstanceId.getInstance().getInstanceId().addOnCompleteListener(new OnCompleteListener<InstanceIdResult>() {
-            @Override
-            public void onComplete(@NonNull Task<InstanceIdResult> task) {
 
-
-                if (task.isSuccessful()) {
-                    token= task.getResult().getToken();
-                    Log.i("Token =",token);
-
-                } else
-                {
-                 Toast.makeText(MainActivity.this,"Token Error ",Toast.LENGTH_LONG).show();
-                }
-            }
-        });
-
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {                   // here thrid parameter is notification channel priority
-            NotificationChannel channel = new NotificationChannel(channel_id, channel_name, NotificationManager.IMPORTANCE_DEFAULT);
-            channel.setDescription(channel_desc);
-            channel.setShowBadge(true);
-            NotificationManager manager = getSystemService(NotificationManager.class);
-            manager.createNotificationChannel(channel);
-        }
-
-
+        GenerateToken generateToken=new GenerateToken();
+        generateToken.execute();
 
         imageView = findViewById(R.id.imageView);
          textView1 = findViewById(R.id.textView);
@@ -85,11 +63,54 @@ public class MainActivity extends AppCompatActivity {
         {
             @Override
             public void run() {
+
                 Intent intent = new Intent(MainActivity.this, login.class);
                 startActivity(intent);
                 finish();
             }
         },SPLASH_SCREEN);
+
+    }
+
+    class GenerateToken extends AsyncTask<Void,Void,Void>
+    {
+        @Override
+        protected Void doInBackground(Void... voids) {
+
+            FirebaseInstanceId.getInstance().getInstanceId().addOnCompleteListener(new OnCompleteListener<InstanceIdResult>() {
+                @Override
+                public void onComplete(@NonNull Task<InstanceIdResult> task) {
+
+
+                    if (task.isSuccessful()) {
+                        token= task.getResult().getToken();
+                        Log.i("Token =",token);
+
+                    } else
+                    {
+                        Toast.makeText(MainActivity.this,"Token Error ",Toast.LENGTH_LONG).show();
+                    }
+                }
+            });
+
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {                   // here thrid parameter is notification channel priority
+                NotificationChannel channel = new NotificationChannel(channel_id, channel_name, NotificationManager.IMPORTANCE_DEFAULT);
+                channel.setDescription(channel_desc);
+                channel.setShowBadge(true);
+                NotificationManager manager = getSystemService(NotificationManager.class);
+                manager.createNotificationChannel(channel);
+            }
+
+             Log.d("Version", String.valueOf(Build.VERSION.SDK_INT));
+
+            return null;
+        }
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+
 
     }
 }

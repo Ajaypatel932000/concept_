@@ -134,9 +134,9 @@ public class dashboard extends AppCompatActivity  implements View.OnClickListene
             @Override
             public void onResponse(String response) {
                 try {
-                    //JSONArray jsonArray = new JSONArray(response);
+
                     JSONObject object = new JSONObject(response);
-                    //JSONObject object1=object.getJSONObject("Success");
+
                     String nm = object.getString("n");
                     String img_ = object.getString("i");
                     name.setText(nm);

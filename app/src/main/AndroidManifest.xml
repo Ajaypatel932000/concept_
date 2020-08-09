@@ -14,7 +14,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".launch_test"></activity>
+        <activity android:name=".result_graph"></activity>
+        <activity android:name=".launch_test" />
         <activity android:name=".Avalible_test" />
         <activity android:name=".attendance_graph" />
         <activity android:name=".chapter" />

@@ -1,6 +1,7 @@
 package com.example.concept_git.show_test;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,8 +11,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.concept_git.Avalible_test;
 import com.example.concept_git.R;
 import com.example.concept_git.test_subject.ListItems;
 
@@ -46,12 +49,13 @@ public class MyAdapter_test_list  extends RecyclerView.Adapter<MyAdapter_test_li
             @Override
             public void onClick(View v) {
 
-                Intent intent=new Intent(context, com.example.concept_git.launch_test.class);
-                Toast.makeText(context,"hello",Toast.LENGTH_LONG).show();
-                //     intent.putExtra("batch_id","7");
-                //   intent.putExtra("subject_id",items.getId());
-                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                context.startActivity(intent);
+                        Intent intent=new Intent(context, com.example.concept_git.launch_test.class);
+                        Toast.makeText(context,"hello",Toast.LENGTH_LONG).show();
+                        intent.putExtra("test_id",items.getId());
+                        intent.putExtra("subject_id", Avalible_test.subject);
+                        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                        context.startActivity(intent);
+
 
             }
         });
@@ -71,6 +75,7 @@ public class MyAdapter_test_list  extends RecyclerView.Adapter<MyAdapter_test_li
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             textViewId = itemView.findViewById(R.id.tv1);
+            textViewId.setVisibility(View.GONE);
             textViewName = itemView.findViewById(R.id.tv2);
             relativeLayout = itemView.findViewById(R.id.relative_layout_test);
 
