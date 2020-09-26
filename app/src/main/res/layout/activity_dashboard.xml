@@ -124,10 +124,10 @@
                      <TextView
                          android:layout_width="80dp"
                          android:layout_height="wrap_content"
-                         android:text="Result"
                          android:fontFamily="monospace"
-                         android:textSize="20dp"
+                         android:text="Result"
                          android:textAlignment="center"
+                         android:textSize="20dp"
 
 
                          />
@@ -292,12 +292,13 @@
 
     </LinearLayout>
     </ScrollView>
+
     <com.google.android.material.navigation.NavigationView
-        app:headerLayout="@layout/nav_header_main"
+        android:id="@+id/navView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/navView"
         android:layout_gravity="start"
+        app:headerLayout="@layout/nav_header_main"
         app:menu="@menu/drawermenu" />
 
 </androidx.drawerlayout.widget.DrawerLayout>
